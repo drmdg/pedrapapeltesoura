@@ -28,7 +28,7 @@ function playRound(playerSelection,cptChoice){
             if(cptChoice=="papel"){
                 console.log("You win!");
             }else if(cptChoice=="pedra"){
-                console.log("You lose!");
+                console.log("You lost!");
             }else{
                 console.log("It's a tie!");
             }
