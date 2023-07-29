@@ -4,37 +4,42 @@ let playerSelection="";
 
 function playRound(playerSelection,cptChoice){
 
+    let output=document.getElementById("output");
+    
+
+   
     switch(playerSelection){
 
         case "papel":
             if(cptChoice=="papel"){
-                console.log("It's a tie!");
+                output.innerText="It's a tie!";
             }else if(cptChoice=="pedra"){
-                console.log("You win!");
+                output.innerText="You win!";
             }else{
-                console.log("You lose!");
+               output.innerText="You lose!";
             }
             break;
         case "pedra":
             if(cptChoice=="papel"){
-                console.log("You lose!");
+                output.innerText="You lose!";
             }else if(cptChoice=="pedra"){
-                console.log("It's a tie!");
+                output.innerText="It's a tie!";
             }else{
-                console.log("You win!");
+                output.innerText="You win!";
             }
             break;
         case "tesoura":
             if(cptChoice=="papel"){
-                console.log("You win!");
+                output.innerText="You win!";
             }else if(cptChoice=="pedra"){
-                console.log("You lost!");
+                output.innerText="You lose!";
             }else{
-                console.log("It's a tie!");
+                output.innerText="It's a tie!";
             }
             break;
-        default: console.log("Entrada Incorreta.");
+        default: output.innerText="Entrada Incorreta.";
     }
+
 
 }
 
@@ -45,8 +50,14 @@ function getComputerChoice(){
     x= Math.floor(Math.random()*3);
     return options[x];
 }
-cptChoice = getComputerChoice();
-playerSelection=prompt("Faça sua jogada:").toLowerCase();
-playRound(playerSelection,cptChoice);
+
+
+
+    document.addEventListener("click",e =>{
+    if(e.target.id){
+        cptChoice = getComputerChoice();
+        playRound(e.target.id,cptChoice);
+    }
+});
 
 
